@@ -1,0 +1,706 @@
+
+
+
+
+/*'============================================================='*/
+/*'=====Estilos generales para todos los elementos HTML========'*/
+/*'==========================================================='*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Define la fuente predeterminada para el cuerpo */
+      display: flex;
+      flex-direction: column;
+ 
+      min-height: 100vh;
+      
+  }
+  
+
+  
+  /*'================================================================================================'*/
+
+
+
+@media screen and (max-width: 775px) {
+    #detalle-producto-izquierda {
+        width: 100%;
+    }
+}
+
+#detalle-producto-izquierda {
+    width: 50%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/*'============================'*/
+/*'====    4 img     ========='*/
+/*'==========================='*/
+
+
+#detalle-producto {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#detalle-producto-L {
+      width: 10%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    padding-right: 0px;
+}
+
+.seleccionadores a, .miniatura, .miniatura:focus {
+    display: inline-block;
+    line-height: 0;
+    outline: none;
+}
+
+.seleccionadores a img, .miniatura img {
+    border: 0;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+#detalle-producto-R {
+    width: 90%;
+    float: right;
+    padding: 12px;
+}
+
+@media screen and (max-width: 1023px) {
+    .figura-app {
+        width: 100% !important;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+.ZoomMagico {
+    display: inline-block;
+    outline: 0 !important;
+    position: relative;
+    margin: 0 auto;
+    vertical-align: middle;
+    user-select: none;
+    touch-action: pan-y;
+    -webkit-compativilidad: translate3d(2, 5, 1);
+}
+
+.figura-app {
+    width: 100% !important;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+.figura-zoom-hover {
+    overflow: hidden;
+    margin: 0 !important;
+    transform-style: preserve-3d;
+	
+}
+.zoom-listo {
+    display: inline-block;
+    outline: 0 !important;
+    font-size: 0 !important;
+    line-height: 100% !important;
+    direction: ltr !important;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.figura-zoom-hover {
+    position: relative;
+}
+
+.zoom-listo {
+    position: relative;
+}
+
+.lente-zoom {
+    position: absolute;
+    border: 1px solid #000;
+    display: none;
+}
+
+.cargando-zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.pista-zoom {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    display: none;
+}
+
+.pista-oculta {
+    display: none;
+}
+
+.figura-zoom-hover:hover .lente-zoom,
+.figura-zoom-hover:hover .cargando-zoom,
+.figura-zoom-hover:hover .pista-zoom {
+    display: block;
+}
+
+.lente-zoom {
+    border: 1px solid rgba(170, 170, 170, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    cursor: none;
+    z-index: 10;
+    opacity: 0;
+    position: absolute !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+.ZoomMagico img, .figura-zoom-hover img {
+    width: 100%;
+    border: 0 !important;
+    margin: 0 !important;
+    outline: 0 !important;
+    padding: 0 !important;
+}
+
+
+
+
+
+
+
+
+#detalle-producto-derecha {
+    width: 50%;
+    float: right;
+ 
+    position: relative;
+    overflow: hidden;
+    margin-top: 44px;
+}
+
+#detalle-producto-nuevo, 
+#detalle-producto-nombre, 
+#detalle-producto-sku, 
+#detalle-producto-marca, 
+#detalle-producto-color, 
+#detalle-producto-precio-detalle, 
+#detalle-producto-cant-colores, 
+#detalle-producto-imagenes-colores, 
+#detalle-producto-opciones-disponibles, 
+#detalle-producto-tallas-disponibles, 
+#detalle-producto-cantidades-disponibles, 
+#detalle-producto-boton, 
+#detalle-producto-boton-agregar, 
+#detalle-producto-linea-detalle {
+    width: 100%;
+    height: auto;
+}
+
+
+.btn_3 {
+    
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFF;
+    height: 40px;
+    width: 150px;
+    border-radius: 12px;
+    box-shadow: 1px 1px 8px #CCC;
+    background-color: #333;
+    border: thin solid #333;
+        margin-top: 23px;
+}
+
+
+@media screen and (max-width: 950px) {
+    .btn_3 {
+        width: 100%;
+        height: 40px;
+    }
+}
+
+
+#detalle-producto-nuevo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    color: #999;
+}
+/*'============================'*/
+/*'==== drerecha    ====='*/
+/*'==========================='*/
+
+#detalle-producto-nombre {
+    width: 100%;
+    height: auto;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    line-height: 28px;
+    color: #000;
+}
+
+#detalle-producto-sku, 
+#detalle-producto-color, 
+#detalle-producto-cant-colores {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 17px;
+    color: #000;
+    margin-top: 9px;
+
+}
+
+#detalle-producto-color {
+    color: #666;
+    line-height: 24px;
+}
+
+#detalle-producto-precio-detalle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*'============================'*/
+/*'====    75 soles    ======'*/
+/*'==========================='*/
+
+.detalle-precio {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 45px;
+    color: rgb(187, 21, 21);
+    line-height: 50px;
+}
+/*'============================'*/
+/*'====     precio tachado       ==='*/
+/*'==========================='*/
+
+.detalle-precio-antes {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 23px;
+    color: #8b8b8b;
+    text-decoration: line-through;
+    line-height: 25px;
+}
+
+#detalle-producto-imagenes-colores {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+form {
+    display: block;
+    margin-top: 0;
+    unicode-bidi: isolate;
+}
+
+#detalle-producto-tallas-disponibles, 
+#detalle-producto-cantidades-disponibles {
+    width: 48%;
+    float: left;
+    margin-right: 2%;
+}
+
+#detalle-producto-cantidades-disponibles {
+    float: right;
+    margin-right: 0;
+}
+/*'============================'*/
+/*'====       tallaass
+/*'==========================='*/
+
+.box_2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: #000;
+    border: thin solid #CCC;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 8px;
+}
+
+#detalle-producto-boton {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#detalle-producto-boton-agregar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-compativilidad: button;
+    cursor: pointer;
+}
+
+img {
+        
+    height: auto;
+    border-style: none;
+    vertical-align: top;
+}
+
+
+
+
+main {
+  
+   
+    
+    box-sizing: border-box;
+  }
+  /* zoom.css */
+
+/* Estilos para el contenedor principal */
+#producto-detalle-izquierda {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilos para las miniaturas */
+#producto-detalle-producto-L {
+    width: 20%;
+}
+
+.selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mz-thumb img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.mz-thumb img:hover {
+    border-color: #007bff; /* Cambiar el borde al pasar el mouse */
+}
+
+/* Estilos para la vista ampliada */
+#producto-detalle-producto-R {
+    width: 75%;
+    position: relative;
+}
+
+/* Estilos para la imagen principal */
+#img-detalle-full {
+    max-width: 100%; /* La imagen no será más ancha que su contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    display: block; /* Eliminar espacio adicional debajo de la imagen */
+    margin: 0 auto; /* Centrar la imagen horizontalmente */
+}
+
+/* Estilos para el efecto de zoom */
+.img-zoom-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    width: 100px;
+    height: 100px;
+}
+
+.img-zoom-result {
+    border: 1px solid #d4d4d4;
+    width: 300px;
+    height: 300px;
+}
+
+/* Estilos para Slick Carousel */
+.slick-slide {
+    margin: 0 10px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #007bff; /* Color de las flechas de navegación */
+}
+
+.slick-prev {
+    left: -25px;
+}
+
+.slick-next {
+    right: -25px;
+}
+
+/***************** Estilos adicionales ***********/
+#producto-detalle-izquierda {
+    width: 40%;
+    height: auto;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-left: 185px;
+}
+
+#producto-detalle-producto {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#producto-detalle-producto-L {
+    width: 10%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    padding-right: 0px;
+}
+
+#producto-detalle-producto-R {
+    width: 90%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    float: right;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+a[data-zoom-id], .mz-thumb, .mz-thumb:focus {
+    display: inline-block;
+    line-height: 0;
+    outline: none;
+}
+
+#img-min-producto {
+    width: 100% !important;
+    height: auto;
+    padding: 0px !important;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.app-figure {
+    width: 100% !important;
+    margin: 0px auto;
+    padding: 0;
+    padding-right: 0px;
+}
+
+.MagicZoom, .mz-figure {
+    display: inline-block;
+    outline: 0 !important;
+    font-size: 0 !important;
+    line-height: 100% !important;
+    direction: ltr !important;
+    position: relative;
+    margin: 0 auto;
+    vertical-align: middle;
+ 
+    user-select: none;
+   
+
+    backface-visibility: hidden;
+}
+
+@media screen and (max-width: 1023px) {
+    .app-figure {
+        width: 100% !important;
+    }
+}
+        
+
+.discount-banner {
+    height: 32px;
+}
+
+/* Estilos responsivos para móviles */
+@media screen and (max-width: 600px) {
+    #detalle-producto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+}
+    @media screen and (max-width: 600px) {
+        #producto-detalle-izquierda {
+            width: 90%;
+            margin-left: 0;
+            
+        }
+    
+
+    #detalle-producto-izquierda, #detalle-producto-derecha {
+        width: 90%;
+    }
+
+    #detalle-producto-izquierda {
+        margin-bottom: 20px;
+    }
+
+    .seleccionadores img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #detalle-producto-R img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.carrusel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carrusel__contenedor {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel__diapositiva {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carrusel__control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 1rem;
+    background-color: rgba(241, 240, 240, 0.97);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.5rem;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+   
+.carrusel__control--prev {
+    left: 10px;
+}
+
+.carrusel__control--siguiente {
+    right: 10px;
+}
+
+@media screen and (min-width: 601px) {
+    .carrusel__control--pre {
+
+    }
+    .carrusel__control--prev {
+    left: 123px;
+}
+
+.carrusel__control--siguiente {
+    right: 123px;
+}
+}
+.carrusel__indicadores {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.carrusel__indicador {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #160d0d;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carrusel__indicador--activo {
+    background-color: #ffffff;
+}
+
+        /* Estilos para escritorio */
+        @media screen and (min-width: 601px) {
+    #detalle-producto {
+   
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 25px;
+
+    }
+
+    #detalle-producto-izquierda, #detalle-producto-derecha {
+        width: 50%;
+        margin-right: 83px;
+
+     
+    }
+
+    #detalle-producto-izquierda {
+        margin-right: 20px;
+    }
+}
+
+    /* Ajustar tamaño de la imagen */
+#imagen-detalle {
+max-width: 100%;
+max-height: 400px;
+width: auto;
+height: auto;
+}
+.carrusel__diapositiva img {
+    max-width: 100%;
+    max-height: 600px; /* Ajusta esta altura según sea necesario */
+    width: auto;
+    height: 523px;
+    display: block;
+    margin: auto;
+}
+#detalle-producto {
+  display: flex;
+  gap: 40px; /* espacio entre imagen y detalles */
+  align-items: flex-start;
+  justify-content: space-between;
+
+}
+

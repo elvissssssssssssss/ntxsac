@@ -1,0 +1,190 @@
+<!-- hombre-novedades.component.html -->
+<div class="contenido-principal">
+  <!-- Contenido Principal -->
+  <main role="main">
+    <div class="contenedor">
+      <!-- Ruta de Navegación -->
+      <div class="encabezado-plp__interior">
+        <nav class="ruta-navegacion">
+         
+          <ol class="ruta-navegacion__lista" [class.active]="menuVisible">
+            <li class="ruta-navegacion__item">
+              <a class="ruta-navegacion__enlace" routerLink="/home">
+                <span>Inicio</span>
+              </a>
+            </li>
+            <li class="ruta-navegacion__item">
+              <span class="ruta-navegacion__separador">/</span>
+              <a routerLink="/mujer/novedades">
+                <span>Novedades Mujer</span>
+              </a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- Título y Descripción -->
+      <h1 class="encabezado_plp-titulo">NOVEDADES Mujer</h1>
+      <div class="mas m-plp_nuevo" data-ref="contexto" style="--mostrar-lineas:3;">
+        Descubre las tendencias de la nueva temporada que necesitas con la gama de novedades para mujer.
+        Descubre las tendencias de la nueva temporada que necesitas con la gama de novedades para mujer.
+        Descubre las tendencias de la nueva temporada que
+      </div>
+    </div>
+
+    <div class="contenedor-principal">
+      <!-- Filtros -->
+      <aside class="form-aside filtros">
+        <form id="filter-form">
+          <!-- Marca -->
+          <fieldset class="navegador-departamento__filtro">
+            <h5 class="navegador-departamento__filtro-titulo">Marca</h5>
+            <div>
+              <label *ngFor="let marca of marcas" class="navegador-departamento__filtro-label">
+                <input 
+                  type="checkbox" 
+                  name="marca[]"
+                  [value]="marca"
+                  [checked]="marcasSeleccionadas.includes(marca)"
+                  (change)="onFiltroChange('marca', marca, $event)"
+                > 
+                {{ marca }}
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Color -->
+          <fieldset class="navegador-departamento__filtro">
+            <h5 class="navegador-departamento__filtro-titulo">Color</h5>
+            <div>
+              <label *ngFor="let color of colores" class="navegador-departamento__filtro-label">
+                <input 
+                  type="checkbox" 
+                  name="color[]"
+                  [value]="color"
+                  [checked]="coloresSeleccionados.includes(color)"
+                  (change)="onFiltroChange('color', color, $event)"
+                > 
+                {{ color }}
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Talla -->
+          <fieldset class="navegador-departamento__filtro">
+            <h5 class="navegador-departamento__filtro-titulo">Talla</h5>
+            <div>
+              <label *ngFor="let talla of tallas" class="navegador-departamento__filtro-label">
+                <input 
+                  type="checkbox" 
+                  name="talla[]"
+                  [value]="talla"
+                  [checked]="tallasSeleccionadas.includes(talla)"
+                  (change)="onFiltroChange('talla', talla, $event)"
+                > 
+                {{ talla }}
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Botón para limpiar filtros -->
+          <div class="filtros-acciones">
+           
+              
+          </div>
+        </form>
+      </aside>
+
+      <!-- Productos con el estilo actualizado -->
+      <div class="productos" id="products-container">
+        <!-- Contador de productos -->
+      
+
+
+        <!-- Lista de productos -->
+        <div *ngFor="let producto of productosFiltrados" class="seccion-producto seccion-producto--grid seccion-producto--altura-auto">
+          <div class="caja-producto">
+            <!-- Imagen del Producto -->
+            <div class="seccion-producto__imagen seccion-producto__imagen--dcto-label">
+              <a [routerLink]="['/producto', producto.id]" class="seccion-producto__imagen-enlace">
+                <img [src]="getImageUrl(producto.imagen)"
+                     loading="lazy"
+                     class="seccion-producto__imagen-img"
+                     [alt]="producto.nombre"
+                     width="300"
+                     height="300">
+              </a>
+              
+              <!-- Etiqueta de descuento -->
+              <p *ngIf="producto.precioDescuento && producto.precioDescuento > 0 && producto.precioDescuento < producto.precio" 
+                 class="seccion-producto__imagen-dcto seccion-producto__imagen-dcto--rojo">
+                {{ calcularDescuento(producto.precio, producto.precioDescuento) }}%
+              </p>
+              
+              <!-- Etiqueta de nuevo producto -->
+             
+            </div>
+            
+            <!-- Detalles del Producto -->
+            <div class="seccion-producto__detalle seccion-producto__detalle--colores-label">
+              <div class="seccion-producto__titulo">
+                <a [routerLink]="['/producto', producto.id]" class="seccion-producto__titulo-enlace">
+                  {{ producto.nombre }}
+                </a>
+              </div>
+              
+              <!-- Marca 
+              <div class="seccion-producto__marca" *ngIf="producto.marca">
+                <span class="marca-texto">{{ producto.marca }}</span>
+              </div> -->
+              
+              <!-- Información adicional 
+              <div class="producto-info">
+                <span class="color" *ngIf="producto.color">Color: {{ producto.color }}</span>
+                <span class="talla" *ngIf="producto.talla">Talla: {{ producto.talla }}</span>
+              </div>  
+                   -->
+
+              <!-- Precios -->
+              <div class="seccion-producto__precio-descuento">
+                
+               <div class="seccion-producto__precio-descuento-item" *ngIf="producto.precioDescuento && producto.precioDescuento > producto.precio; else precioNormal">
+                <div class="seccion-producto__precio-descuento-item">
+    <strong >S/.{{ producto.precio }}</strong>
+  </div>
+                <div class="precio-original">
+    <span class="seccion-producto__precio seccion-producto__precio--tachado">
+    Antes  S/.{{ producto.precioDescuento }}
+    </span>
+  </div>
+
+  <div class="porcentaje-descuento">
+    <small class="text-success">
+      -{{ calcularDescuento(producto.precioDescuento, producto.precio) }}%
+    </small>
+  </div>
+</div>
+                
+                <ng-template #precioNormal>
+                  <div class="seccion-producto__precio-descuento-item">S/.{{ producto.precio }}</div>
+                </ng-template>
+              </div>
+              
+              <!-- Botón de acción -->
+              <div class="btn-comprar seccion-producto__btn-comprar">
+                <a [routerLink]="['/producto', producto.id]" class="seccion-producto__btn-comprar-enlace">
+                  VISTA RÁPIDA
+                </a>
+              </div>
+              
+              <!-- Botón para agregar a favoritos -->
+              <div class="producto-acciones">
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

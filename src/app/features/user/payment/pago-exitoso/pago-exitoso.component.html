@@ -1,0 +1,26 @@
+<div class="success-container">
+  <div class="success-card">
+    <div class="icon-check">
+      <span>&#10004;</span>
+    </div>
+    <h1 class="title">¡PagOO realizado con éxito!</h1>
+    <p class="message">
+      Gracias por tu compra. Hemos recibido tu pago correctamente.
+    </p>
+    <button class="btn-back" (click)="volverAlInicio()">Volver al inicio</button>
+  </div>
+</div>
+
+ <button class="btn-invoice" (click)="emitirFactura()">Descargar factura</button>
+
+<div *ngIf="tipoComprobante === 'factura'">
+  <label for="ruc">REEEEEEEEEEEEEEEEEUC</label>
+  <input id="ruc" [(ngModel)]="datosFactura.ruc" required>
+
+  <label for="razonSocial">Razón Social</label>
+  <input id="razonSocial" [(ngModel)]="datosFactura.razonSocial" required>
+</div>
+<div class="alert alert-info" *ngIf="ventaId">
+  ¡Gracias por tu compra! Tu número de venta es <strong>#{{ ventaId }}</strong>.
+  Con este número podrás ver el seguimiento de tu pedido en la sección "Gestión de Envíos".
+</div>
